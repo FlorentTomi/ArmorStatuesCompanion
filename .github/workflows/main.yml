@@ -18,3 +18,9 @@ jobs:
       with:
         name: Artifacts
         path: ./build/libs
+
+    - name: Publish
+      uses: Kir-Antipov/mc-publish@v3.3
+      with:
+         modrinth-id: AANobbMI
+         modrinth-token: UE4M9RbW
