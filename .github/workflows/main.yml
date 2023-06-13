@@ -1,26 +1,35 @@
-name: Compiling
+name: Publish on GitHub, CurseForge & Modrinth    #The name of your GitHub Action on github.com
+ 
+on: [ pull_request, workflow_dispatch ]           #When your GitHub Action will be executed ('pull_request' -> on every Merge(/Pull) Request; 'workflow_dispatch' -> allows manual execution through github.com
 
-on:
-  push:
-  pull_request:
+env:                                              #Environment variables that can later be referenced using ${{ env.MINECRAFT_VERSION }}. These are useful for repeating information and allow for quick changes for new mod updates
+  MINECRAFT_VERSION: 1.19.2                        
+  JAVA_VERSION: 17                   
 
-jobs:
-  build:
+permissions:
+  contents: write
 
-    runs-on: ubuntu-latest
+jobs:                                             #The place where you actually tell the GitHub server what to do. 
+  build:                                          #To publish your mod you only need one 'job', here it is called 'build'.
+    runs-on: ubuntu-latest                        #'runs-on' specifies the operation system (linux).
+    steps:                                        #Under 'steps' you will list all the individual commands, such as MC-Publish by Kir-Antipov.
+      - name: Check Environment Variables
+        run: env
 
-    steps:
-    - name: Compile
-      uses: Ruochenfu2011/compilation@v1
-      
-    - name: Archive Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: Artifacts
-        path: ./build/libs
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
 
-    - name: Publish
-      uses: Kir-Antipov/mc-publish@v3.3
-      with:
-         modrinth-id: AANobbMI
-         modrinth-token: UE4M9RbW
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "temurin"
+          java-version: 17
+
+      - name: Make Gradle Wrapper Executable
+        if: ${{ runner.os != 'Windows' }}
+        run: chmod +x ./gradlew
+
+      - name: Build
+        run: ./gradlew clean build
