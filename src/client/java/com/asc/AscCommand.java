@@ -1,6 +1,7 @@
 package com.asc;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.integrated.IntegratedServer;
@@ -16,17 +17,14 @@ public class AscCommand {
     }
 
     public static void ExecuteCommand(MinecraftClient client, String command) {
-        MinecraftServer server = client.player.getServer();
-        if (server == null) {
-            IntegratedServer integratedServer = client.getServer();
-            ExecuteCommand(integratedServer, command);
+        IntegratedServer integratedServer = client.getServer();
+        String chatCommand = "/execute as @p run " + command;
+        if (integratedServer != null) {
+            CommandManager cmdManager = integratedServer.getCommandManager();
+            cmdManager.executeWithPrefix(integratedServer.getCommandSource(), chatCommand);
         } else {
-            ExecuteCommand(server, command);
+            ClientPlayNetworkHandler networkHandler = client.getNetworkHandler();
+            networkHandler.sendChatCommand(chatCommand);
         }
-    }
-
-    private static void ExecuteCommand(MinecraftServer server, String command) {
-        CommandManager cmdManager = server.getCommandManager();
-        cmdManager.executeWithPrefix(server.getCommandSource(), "/execute as @p run " + command);
     }
 }
