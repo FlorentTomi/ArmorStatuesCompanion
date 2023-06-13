@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "com.asc.mixin.client",
+	"compatibilityLevel": "JAVA_17",
+	"client": [
+		"AscClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

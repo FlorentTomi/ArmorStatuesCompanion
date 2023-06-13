@@ -1,0 +1,1547 @@
+<owo-ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/wisp-forest/owo-lib/1.19.4/owo-ui.xsd">
+    <components>
+        <flow-layout direction="vertical">
+            <children>
+                <scroll direction="vertical">
+                    <flow-layout direction="vertical">
+                        <children>
+                            <button id="CHECK">
+                                <text>Check Armor Stand</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                    <vertical method="fixed">20</vertical>
+                                </sizing>
+                            </button>
+
+                            <collapsible id="STYLE" expanded="true">
+                                <children>
+                                    <grid-layout rows="6" columns="3">
+                                        <children>
+                                            <label row="0" column="0">
+                                                <text>Base plate:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="SHOW_BASE_PLATE" row="0" column="1">
+                                                <text>Show</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="HIDE_BASE_PLATE" row="0" column="2">
+                                                <text>Hide</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="1" column="0">
+                                                <text>Arms:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="SHOW_ARMS" row="1" column="1">
+                                                <text>Show</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="HIDE_ARMS" row="1" column="2">
+                                                <text>Hide</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="2" column="0">
+                                                <text>Stand:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="SHOW_STAND" row="2" column="1">
+                                                <text>Show</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="HIDE_STAND" row="2" column="2">
+                                                <text>Hide</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="3" column="0">
+                                                <text>Name:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="SHOW_NAME" row="3" column="1">
+                                                <text>Show</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="HIDE_NAME" row="3" column="2">
+                                                <text>Hide</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="4" column="0">
+                                                <text>Small stand:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="ENABLE_SMALL_STAND" row="4" column="1">
+                                                <text>Enable</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="DISABLE_SMALL_STAND" row="4" column="2">
+                                                <text>Disable</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="5" column="0">
+                                                <text>Gravity:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="ENABLE_GRAVITY" row="5" column="1">
+                                                <text>Enable</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="DISABLE_GRAVITY" row="5" column="2">
+                                                <text>Disable</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </grid-layout>
+                                </children>
+                                <text>Style</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+
+                            <collapsible id="NUDGE" expanded="true">
+                                <children>
+                                    <flow-layout direction="vertical">
+                                        <children>
+                                            <label>
+                                                <text>Position:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="3" columns="7">
+                                                <children>
+                                                    <label row="0" column="0">
+                                                        <text>X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                        <vertical-text-alignment>center</vertical-text-alignment>
+                                                    </label>
+                                                    <button id="NUDGE_POS_X_M8" row="0" column="1">
+                                                        <text>-8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_M3" row="0" column="2">
+                                                        <text>-3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_M1" row="0" column="3">
+                                                        <text>-1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_P1" row="0" column="4">
+                                                        <text>+1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_P3" row="0" column="5">
+                                                        <text>+3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_P8" row="0" column="6">
+                                                        <text>+8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <label row="1" column="0">
+                                                        <text>Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                        <vertical-text-alignment>center</vertical-text-alignment>
+                                                    </label>
+                                                    <button id="NUDGE_POS_Y_M8" row="1" column="1">
+                                                        <text>-8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_M3" row="1" column="2">
+                                                        <text>-3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_M1" row="1" column="3">
+                                                        <text>-1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_P1" row="1" column="4">
+                                                        <text>+1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_P3" row="1" column="5">
+                                                        <text>+3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_P8" row="1" column="6">
+                                                        <text>+8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <label row="2" column="0">
+                                                        <text>Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                        <vertical-text-alignment>center</vertical-text-alignment>
+                                                    </label>
+                                                    <button id="NUDGE_POS_Z_M8" row="2" column="1">
+                                                        <text>-8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_M3" row="2" column="2">
+                                                        <text>-3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_M1" row="2" column="3">
+                                                        <text>-1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_P1" row="2" column="4">
+                                                        <text>+1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_P3" row="2" column="5">
+                                                        <text>+3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_P8" row="2" column="6">
+                                                        <text>+8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </grid-layout>
+
+                                            <label>
+                                                <text>Aligned Position:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="2" columns="7">
+                                                <children>
+                                                    <label row="0" column="0">
+                                                        <text>X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                        <vertical-text-alignment>center</vertical-text-alignment>
+                                                    </label>
+                                                    <button id="NUDGE_POS_X_ALIGNED_M8" row="0" column="1">
+                                                        <text>-8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_ALIGNED_M3" row="0" column="2">
+                                                        <text>-3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_ALIGNED_M1" row="0" column="3">
+                                                        <text>-1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_ALIGNED_P1" row="0" column="4">
+                                                        <text>+1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_ALIGNED_P3" row="0" column="5">
+                                                        <text>+3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_ALIGNED_P8" row="0" column="6">
+                                                        <text>+8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <label row="1" column="0">
+                                                        <text>Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                        <vertical-text-alignment>center</vertical-text-alignment>
+                                                    </label>
+                                                    <button id="NUDGE_POS_Z_ALIGNED_M8" row="1" column="1">
+                                                        <text>-8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_ALIGNED_M3" row="1" column="2">
+                                                        <text>-3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_ALIGNED_M1" row="1" column="3">
+                                                        <text>-1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_ALIGNED_P1" row="1" column="4">
+                                                        <text>+1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_ALIGNED_P3" row="1" column="5">
+                                                        <text>+3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_ALIGNED_P8" row="1" column="6">
+                                                        <text>+8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </grid-layout>
+
+                                            <label>
+                                                <text>Exact Position:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="3" columns="7">
+                                                <children>
+                                                    <label row="0" column="0">
+                                                        <text>X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                        <vertical-text-alignment>center</vertical-text-alignment>
+                                                    </label>
+                                                    <button id="NUDGE_POS_X_EXACT_M8" row="0" column="1">
+                                                        <text>-8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_EXACT_M3" row="0" column="2">
+                                                        <text>-3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_EXACT_M1" row="0" column="3">
+                                                        <text>-1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_EXACT_P1" row="0" column="4">
+                                                        <text>+1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_EXACT_P3" row="0" column="5">
+                                                        <text>+3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_X_EXACT_P8" row="0" column="6">
+                                                        <text>+8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <label row="1" column="0">
+                                                        <text>Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                        <vertical-text-alignment>center</vertical-text-alignment>
+                                                    </label>
+                                                    <button id="NUDGE_POS_Y_EXACT_M8" row="1" column="1">
+                                                        <text>-8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_EXACT_M3" row="1" column="2">
+                                                        <text>-3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_EXACT_M1" row="1" column="3">
+                                                        <text>-1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_EXACT_P1" row="1" column="4">
+                                                        <text>+1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_EXACT_P3" row="1" column="5">
+                                                        <text>+3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Y_EXACT_P8" row="1" column="6">
+                                                        <text>+8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <label row="2" column="0">
+                                                        <text>Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                        <horizontal-text-alignment>center</horizontal-text-alignment>
+                                                        <vertical-text-alignment>center</vertical-text-alignment>
+                                                    </label>
+                                                    <button id="NUDGE_POS_Z_EXACT_M8" row="2" column="1">
+                                                        <text>-8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_EXACT_M3" row="2" column="2">
+                                                        <text>-3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_EXACT_M1" row="2" column="3">
+                                                        <text>-1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_EXACT_P1" row="2" column="4">
+                                                        <text>+1</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_EXACT_P3" row="2" column="5">
+                                                        <text>+3</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="NUDGE_POS_Z_EXACT_P8" row="2" column="6">
+                                                        <text>+8</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </grid-layout>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <gap>5</gap>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </flow-layout>
+                                </children>
+                                <text>Nudge</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+
+                            <collapsible id="ROTATION" expanded="true">
+                                <children>
+                                    <flow-layout direction="vertical">
+                                        <children>
+                                            <flow-layout direction="horizontal">
+                                                <children>
+                                                    <label>
+                                                        <text>Set Angle:</text>
+                                                        <horizontal-text-alignment>left</horizontal-text-alignment>
+                                                        <sizing>
+                                                            <horizontal method="fill">20</horizontal>
+                                                        </sizing>
+                                                    </label>
+
+                                                    <button id="SET_ROTATION_STEP_1">
+                                                        <text>1°</text>
+                                                        <sizing>
+                                                            <horizontal method="fill">20</horizontal>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <button id="SET_ROTATION_STEP_5">
+                                                        <text>5°</text>
+                                                        <sizing>
+                                                            <horizontal method="fill">20</horizontal>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <button id="SET_ROTATION_STEP_15">
+                                                        <text>15°</text>
+                                                        <sizing>
+                                                            <horizontal method="fill">20</horizontal>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <button id="SET_ROTATION_STEP_45">
+                                                        <text>45°</text>
+                                                        <sizing>
+                                                            <horizontal method="fill">20</horizontal>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+                                            </flow-layout>
+
+                                            <flow-layout direction="horizontal">
+                                                <children>
+                                                    <button id="ROTATE_LEFT">
+                                                        <text>Rotate Left</text>
+                                                        <sizing>
+                                                            <horizontal method="fill">50</horizontal>
+                                                        </sizing>
+                                                    </button>
+
+                                                    <button id="ROTATE_RIGHT">
+                                                        <text>Rotate Right</text>
+                                                        <sizing>
+                                                            <horizontal method="fill">50</horizontal>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+                                            </flow-layout>
+
+                                            <button id="ROTATE_TOWARD">
+                                                <text>Rotate Toward</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="ROTATE_AWAY">
+                                                <text>Rotate Away</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <gap>5</gap>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </flow-layout>
+                                </children>
+                                <text>Rotation</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+
+                            <collapsible id="POINTING" expanded="true">
+                                <children>
+                                    <grid-layout rows="6" columns="3">
+                                        <children>
+                                            <label row="0" column="0">
+                                                <text>Head:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="POINT_HEAD_TO_HEAD" row="0" column="1">
+                                                <text>To Head</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="POINT_HEAD_TO_FEET" row="0" column="2">
+                                                <text>To Feet</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="1" column="0">
+                                                <text>Body:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="POINT_BODY_TO_HEAD" row="1" column="1">
+                                                <text>To Head</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="POINT_BODY_TO_FEET" row="1" column="2">
+                                                <text>To Feet</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="2" column="0">
+                                                <text>Left Arm:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="POINT_LEFT_ARM_TO_HEAD" row="2" column="1">
+                                                <text>To Head</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="POINT_LEFT_ARM_TO_FEET" row="2" column="2">
+                                                <text>To Feet</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="3" column="0">
+                                                <text>Right Arm:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="POINT_RIGHT_ARM_TO_HEAD" row="3" column="1">
+                                                <text>To Head</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="POINT_RIGHT_ARM_TO_FEET" row="3" column="2">
+                                                <text>To Feet</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="4" column="0">
+                                                <text>Left Leg:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="POINT_LEFT_LEG_TO_HEAD" row="4" column="1">
+                                                <text>To Head</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="POINT_LEFT_LEG_TO_FEET" row="4" column="2">
+                                                <text>To Feet</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+
+                                            <label row="5" column="0">
+                                                <text>Right Leg:</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                </sizing>
+                                                <horizontal-text-alignment>left</horizontal-text-alignment>
+                                            </label>
+                                            <button id="POINT_RIGHT_LEG_TO_HEAD" row="5" column="1">
+                                                <text>To Head</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                            <button id="POINT_RIGHT_LEG_TO_FEET" row="5" column="2">
+                                                <text>To Feet</text>
+                                                <sizing>
+                                                    <horizontal method="fixed">64</horizontal>
+                                                    <vertical method="fixed">20</vertical>
+                                                </sizing>
+                                            </button>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </grid-layout>
+                                </children>
+                                <text>Pointing</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+
+                            <collapsible id="POSE_ADJ" expanded="true">
+                                <children>
+                                    <flow-layout direction="vertical">
+                                        <children>
+                                            <label>
+                                                <text>Head:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="3" columns="6">
+                                                <children>
+                                                    <button id="POSE_ADJ_HEAD_X_MINUS" row="0" column="0">
+                                                        <text>-X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_HEAD_X_PLUS" row="0" column="1">
+                                                        <text>+X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_HEAD_Y_MINUS" row="0" column="2">
+                                                        <text>-Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_HEAD_Y_PLUS" row="0" column="3">
+                                                        <text>+Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_HEAD_Z_MINUS" row="0" column="4">
+                                                        <text>-Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_HEAD_Z_PLUS" row="0" column="5">
+                                                        <text>+Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+
+                                                <horizontal-alignment>center</horizontal-alignment>
+                                            </grid-layout>
+
+                                            <label>
+                                                <text>Body:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="3" columns="6">
+                                                <children>
+                                                    <button id="POSE_ADJ_BODY_X_MINUS" row="0" column="0">
+                                                        <text>-X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_BODY_X_PLUS" row="0" column="1">
+                                                        <text>+X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_BODY_Y_MINUS" row="0" column="2">
+                                                        <text>-Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_BODY_Y_PLUS" row="0" column="3">
+                                                        <text>+Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_BODY_Z_MINUS" row="0" column="4">
+                                                        <text>-Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_BODY_Z_PLUS" row="0" column="5">
+                                                        <text>+Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+
+                                                <horizontal-alignment>center</horizontal-alignment>
+                                            </grid-layout>
+
+                                            <label>
+                                                <text>Left Arm:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="3" columns="6">
+                                                <children>
+                                                    <button id="POSE_ADJ_LEFT_ARM_X_MINUS" row="0" column="0">
+                                                        <text>-X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_ARM_X_PLUS" row="0" column="1">
+                                                        <text>+X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_ARM_Y_MINUS" row="0" column="2">
+                                                        <text>-Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_ARM_Y_PLUS" row="0" column="3">
+                                                        <text>+Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_ARM_Z_MINUS" row="0" column="4">
+                                                        <text>-Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_ARM_Z_PLUS" row="0" column="5">
+                                                        <text>+Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+
+                                                <horizontal-alignment>center</horizontal-alignment>
+                                            </grid-layout>
+
+                                            <label>
+                                                <text>Right Arm:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="3" columns="6">
+                                                <children>
+                                                    <button id="POSE_ADJ_RIGHT_ARM_X_MINUS" row="0" column="0">
+                                                        <text>-X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_ARM_X_PLUS" row="0" column="1">
+                                                        <text>+X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_ARM_Y_MINUS" row="0" column="2">
+                                                        <text>-Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_ARM_Y_PLUS" row="0" column="3">
+                                                        <text>+Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_ARM_Z_MINUS" row="0" column="4">
+                                                        <text>-Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_ARM_Z_PLUS" row="0" column="5">
+                                                        <text>+Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+
+                                                <horizontal-alignment>center</horizontal-alignment>
+                                            </grid-layout>
+
+                                            <label>
+                                                <text>Left Leg:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="3" columns="6">
+                                                <children>
+                                                    <button id="POSE_ADJ_LEFT_LEG_X_MINUS" row="0" column="0">
+                                                        <text>-X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_LEG_X_PLUS" row="0" column="1">
+                                                        <text>+X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_LEG_Y_MINUS" row="0" column="2">
+                                                        <text>-Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_LEG_Y_PLUS" row="0" column="3">
+                                                        <text>+Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_LEG_Z_MINUS" row="0" column="4">
+                                                        <text>-Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_LEFT_LEG_Z_PLUS" row="0" column="5">
+                                                        <text>+Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+
+                                                <horizontal-alignment>center</horizontal-alignment>
+                                            </grid-layout>
+
+                                            <label>
+                                                <text>Right Leg:</text>
+                                                <horizontal-text-alignment>center</horizontal-text-alignment>
+                                            </label>
+
+                                            <grid-layout rows="3" columns="6">
+                                                <children>
+                                                    <button id="POSE_ADJ_RIGHT_LEG_X_MINUS" row="0" column="0">
+                                                        <text>-X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_LEG_X_PLUS" row="0" column="1">
+                                                        <text>+X</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_LEG_Y_MINUS" row="0" column="2">
+                                                        <text>-Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_LEG_Y_PLUS" row="0" column="3">
+                                                        <text>+Y</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_LEG_Z_MINUS" row="0" column="4">
+                                                        <text>-Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                    <button id="POSE_ADJ_RIGHT_LEG_Z_PLUS" row="0" column="5">
+                                                        <text>+Z</text>
+                                                        <sizing>
+                                                            <horizontal method="fixed">20</horizontal>
+                                                            <vertical method="fixed">20</vertical>
+                                                        </sizing>
+                                                    </button>
+                                                </children>
+
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+
+                                                <horizontal-alignment>center</horizontal-alignment>
+                                            </grid-layout>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <gap>5</gap>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </flow-layout>
+                                </children>
+                                <text>Pose Adjustments</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+
+                            <collapsible id="AUTO_ALIGN" expanded="true">
+                                <children>
+                                    <flow-layout direction="vertical">
+                                        <children>
+                                            <button id="SET_BLOCK_ON_SURFACE">
+                                                <text>Set Block on Surface</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="SET_ITEM_ON_SURFACE">
+                                                <text>Set Item on Surface</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="SET_ITEM_FLAT_ON_SURFACE">
+                                                <text>Set Item Flat on Surface</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="SET_TOOL_FLAT_ON_SURFACE">
+                                                <text>Set Tool Flat on Surface</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="SET_TOOL_RACK">
+                                                <text>Set Tool Rack</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <gap>5</gap>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </flow-layout>
+                                </children>
+                                <text>Auto Alignment</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+
+                            <collapsible id="SWAP_SLOTS" expanded="true">
+                                <children>
+                                    <flow-layout direction="vertical">
+                                        <children>
+                                            <button id="SWAP_MAINHAND_OFFHAND">
+                                                <text>Swap Main Hand/Offhand</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="SWAP_MAINHAND_HEAD">
+                                                <text>Swap Main Hand/Head</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <gap>5</gap>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </flow-layout>
+                                </children>
+                                <text>Swap Slots</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+
+                            <collapsible id="MIRROR_FLIP" expanded="true">
+                                <children>
+                                    <flow-layout direction="vertical">
+                                        <children>
+                                            <button id="MIRROR_ARMS_LR">
+                                                <text>Mirror Arms (Left -> Right)</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="MIRROR_ARMS_RL">
+                                                <text>Mirror Arms (Right -> Left)</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+                                            <button id="MIRROR_LEGS_LR">
+                                                <text>Mirror Legs (Left -> Right)</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="MIRROR_LEGS_RL">
+                                                <text>Mirror Legs (Right -> Left)</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="FLIP">
+                                                <text>Flip</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <gap>5</gap>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </flow-layout>
+                                </children>
+                                <text>Mirror/Flip</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+
+                            <collapsible id="UTILS" expanded="true">
+                                <children>
+                                    <flow-layout direction="vertical">
+                                        <children>
+                                            <button id="COPY">
+                                                <text>Copy</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="PASTE">
+                                                <text>Paste</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+                                            <button id="LOCK">
+                                                <text>Lock</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+
+                                            <button id="UNLOCK">
+                                                <text>Unlock</text>
+                                                <sizing>
+                                                    <horizontal method="fill">100</horizontal>
+                                                </sizing>
+                                            </button>
+                                        </children>
+
+                                        <vertical-alignment>center</vertical-alignment>
+                                        <horizontal-alignment>center</horizontal-alignment>
+
+                                        <padding>
+                                            <all>10</all>
+                                        </padding>
+
+                                        <sizing>
+                                            <horizontal method="fill">100</horizontal>
+                                        </sizing>
+
+                                        <gap>5</gap>
+
+                                        <surface>
+                                            <panel dark="true"/>
+                                        </surface>
+                                    </flow-layout>
+                                </children>
+                                <text>Utilities</text>
+                                <sizing>
+                                    <horizontal method="fill">25</horizontal>
+                                </sizing>
+                            </collapsible>
+                        </children>
+                    </flow-layout>
+
+                    <sizing>
+                        <vertical method="fill">100</vertical>
+                    </sizing>
+                </scroll>
+            </children>
+
+            <vertical-alignment>center</vertical-alignment>
+            <horizontal-alignment>right</horizontal-alignment>
+
+            <padding>
+                <right>5</right>
+            </padding>
+
+            <sizing>
+                <horizontal method="fill">25</horizontal>
+            </sizing>
+
+            <surface>
+                <vanilla-translucent/>
+            </surface>
+        </flow-layout>
+    </components>
+</owo-ui>
