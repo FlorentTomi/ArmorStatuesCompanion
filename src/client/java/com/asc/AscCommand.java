@@ -18,11 +18,12 @@ public class AscCommand {
 
     public static void ExecuteCommand(MinecraftClient client, String command) {
         IntegratedServer integratedServer = client.getServer();
-        String chatCommand = "/execute as @p run " + command;
         if (integratedServer != null) {
+            String chatCommand = "/execute as @p run " + command;
             CommandManager cmdManager = integratedServer.getCommandManager();
             cmdManager.executeWithPrefix(integratedServer.getCommandSource(), chatCommand);
         } else {
+            String chatCommand = "/" + command;
             ClientPlayNetworkHandler networkHandler = client.getNetworkHandler();
             networkHandler.sendChatCommand(chatCommand);
         }
