@@ -265,8 +265,7 @@ public class AscScreen extends BaseUIModelScreen<FlowLayout> {
     }
 
     private void trigger(Runnable runnable) {
-        MinecraftServer server = MinecraftClient.getInstance().getServer();
-        if (server == null || !server.isRemote()) {
+        if (this.client.getServer() != null) {
             this.close();
         }
 

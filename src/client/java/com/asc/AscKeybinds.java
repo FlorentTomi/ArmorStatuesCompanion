@@ -25,10 +25,16 @@ class AscKeybinds {
             GLFW.GLFW_KEY_UNKNOWN,
             "category.asc.armor_stand");
 
+    private static KeyBinding OPEN_GUI = new KeyBinding(
+            "key.asc.open_gui",
+            InputUtil.Type.KEYSYM,
+            GLFW.GLFW_KEY_COMMA,
+            "category.asc.armor_stand");
+
     private static KeyBinding CHECK_ARMOR_STAND = new KeyBinding(
             "key.asc.check_armor_stand",
             InputUtil.Type.KEYSYM,
-            GLFW.GLFW_KEY_COMMA,
+            GLFW.GLFW_KEY_UNKNOWN,
             "category.asc.armor_stand");
 
     public static void RegisterKeybinds() {
@@ -41,7 +47,10 @@ class AscKeybinds {
             }
 
             while (CHECK_ARMOR_STAND.wasPressed()) {
-//                ArmorStandTriggers.Check(client);
+                ArmorStandTriggers.Check(client);
+            }
+
+            while (OPEN_GUI.wasPressed()) {
                  client.setScreen(new AscScreen(client));
             }
         });

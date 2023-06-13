@@ -23,9 +23,8 @@ public class AscCommand {
             CommandManager cmdManager = integratedServer.getCommandManager();
             cmdManager.executeWithPrefix(integratedServer.getCommandSource(), chatCommand);
         } else {
-            String chatCommand = "/" + command;
             ClientPlayNetworkHandler networkHandler = client.getNetworkHandler();
-            networkHandler.sendChatCommand(chatCommand);
+            networkHandler.sendChatCommand(command);
         }
     }
 }

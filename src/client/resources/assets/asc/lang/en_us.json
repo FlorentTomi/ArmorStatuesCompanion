@@ -1,6 +1,7 @@
 {
     "category.asc.armor_stand": "Armor Stand Datapack",
     "key.asc.check_armor_stand": "Check Armor Stand",
+    "key.asc.open_gui": "Open GUI",
     "key.asc.toggle_item_frame_visibility": "Toggle Item Frame visibility",
     "screen.asc.title": "Armor Stand Companion"
 }
