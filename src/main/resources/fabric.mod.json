@@ -16,24 +16,24 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.asc.AscMod"
+			{
+				"adapter": "kotlin",
+				"value": "com.asc.AscMod"
+			}
 		],
 		"client": [
-			"com.asc.AscClient"
+			{
+				"adapter": "kotlin",
+				"value": "com.asc.AscClient"
+			}
 		]
 	},
-	"mixins": [
-		"armor-statues-companion.mixins.json",
-		{
-			"config": "armor-statues-companion.client.mixins.json",
-			"environment": "client"
-		}
-	],
 	"depends": {
 		"fabricloader": ">=0.14.21",
 		"minecraft": "~1.19.4",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"fabric-language-kotlin": ">=1.8.22"
 	},
 	"suggests": {
 		"another-mod": "*"
