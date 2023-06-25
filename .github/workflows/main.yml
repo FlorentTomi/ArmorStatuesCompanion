@@ -6,8 +6,8 @@ env:                                              #Environment variables that ca
   MINECRAFT_VERSION: 1.19.4
   JAVA_VERSION: 17
   BASE_VERSION: 1.1.0
-  VERSION: ${{ env.BASE_VERSION }}+${{ env.MINECRAFT_VERSION }}
-  RELEASE_NAME: Armor Statues Companion ${{ env.BASE_VERSION }} for ${{ env.MINECRAFT_VERSION }}
+  VERSION: $BASE_VERSION+$MINECRAFT_VERSION
+  RELEASE_NAME: Armor Statues Companion $BASE_VERSION for $MINECRAFT_VERSION
   MODRINTH_TOKEN: ${{ secrets.PUBLISH_MODRINTH_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}           
 
