@@ -5,9 +5,8 @@ on: [ pull_request, workflow_dispatch ]           #When your GitHub Action will 
 env:                                              #Environment variables that can later be referenced using ${{ env.MINECRAFT_VERSION }}. These are useful for repeating information and allow for quick changes for new mod updates
   MINECRAFT_VERSION: 1.19.4
   JAVA_VERSION: 17
-  BASE_VERSION: 1.1.0
-  VERSION: $BASE_VERSION+$MINECRAFT_VERSION
-  RELEASE_NAME: Armor Statues Companion $BASE_VERSION for $MINECRAFT_VERSION
+  VERSION: 1.1.0+1.19.4
+  RELEASE_NAME: Armor Statues Companion 1.1.0 for 1.19.4
   MODRINTH_TOKEN: ${{ secrets.PUBLISH_MODRINTH_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}           
 
