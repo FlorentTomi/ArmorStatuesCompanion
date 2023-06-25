@@ -3,10 +3,11 @@ name: Publish on GitHub & Modrinth    #The name of your GitHub Action on github.
 on: [ pull_request, workflow_dispatch ]           #When your GitHub Action will be executed ('pull_request' -> on every Merge(/Pull) Request; 'workflow_dispatch' -> allows manual execution through github.com
 
 env:                                              #Environment variables that can later be referenced using ${{ env.MINECRAFT_VERSION }}. These are useful for repeating information and allow for quick changes for new mod updates
-  MINECRAFT_VERSION: 1.19.4
+  MINECRAFT_VERSION: 1.20.1
   JAVA_VERSION: 17
-  VERSION: 1.1.0+1.19.4
-  RELEASE_NAME: Armor Statues Companion 1.1.0 for 1.19.4
+  BASE_VERSION: 1.2.0
+  VERSION: $BASE_VERSION+$MINECRAFT_VERSION
+  RELEASE_NAME: Armor Statues Companion $BASE_VERSION for $MINECRAFT_VERSION
   MODRINTH_TOKEN: ${{ secrets.PUBLISH_MODRINTH_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}           
 
