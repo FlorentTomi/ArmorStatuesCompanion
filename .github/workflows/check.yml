@@ -1,12 +1,12 @@
 name: build-actions
 
-on: [workflow_dispatch, workflow_call, push]
+on: [workflow_dispatch, push]
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -20,9 +20,5 @@ jobs:
           distribution: "temurin"
           java-version: 17
 
-      - name: Make Gradle Wrapper Executable
-        if: ${{ runner.os != 'Windows' }}
-        run: chmod +x ./gradlew
-
-      - name: Build
-        run: ./gradlew clean build
+      - uses: "./.github/workflows/build-action"
+      - uses: "./.github/workflows/clean-action"
