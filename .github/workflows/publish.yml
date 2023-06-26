@@ -18,8 +18,23 @@ permissions:
   contents: write
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "temurin"
+          java-version: 17
+
   build:
     uses: "./.github/workflows/build.yml"
+    needs: [setup]
 
   publish:
     runs-on: ubuntu-latest
