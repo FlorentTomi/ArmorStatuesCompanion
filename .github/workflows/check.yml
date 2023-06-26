@@ -6,10 +6,8 @@ permissions:
   contents: write
 
 jobs:
-  check:
-    steps:
-      - name: build
-        uses: "./.github/workflows/build.yml"
+  build:
+    uses: "./.github/workflows/build.yml"
 
-      - name: clean
-        uses: "./.github/workflows/clean.yml"
+  clean:
+    uses: "./.github/workflows/clean.yml"

@@ -18,12 +18,12 @@ permissions:
   contents: write
 
 jobs:
+  build:
+    uses: "./.github/workflows/build.yml"
 
   publish:
     runs-on: ubuntu-latest
     steps:
-      -name: build
-        uses: "./.github/workflows/build.yml"
 
       - name: Check Environment Variables
         run: env
@@ -46,5 +46,5 @@ jobs:
           game-versions: "${{env.MINECRAFT_VERSION}}"
           java: "${{env.JAVA_VERSION}}"
 
-      - name: clean
-        uses: "./.github/workflows/clean.yml"
+  clean:
+    uses: "./.github/workflows/clean.yml"
