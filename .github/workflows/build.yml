@@ -1,6 +1,6 @@
 name: build-actions
 
-on: [workflow_dispatch, workflow_call, push]
+on: [workflow_call]
 
 permissions:
   contents: write
@@ -23,6 +23,3 @@ jobs:
       - name: Make Gradle Wrapper Executable
         if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
-
-      - name: Build
-        run: ./gradlew clean build
