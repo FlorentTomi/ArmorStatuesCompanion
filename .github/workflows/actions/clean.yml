@@ -1,0 +1,7 @@
+name: 'Clean'
+description: 'Clean Gradle project'
+runs:
+  using: "composite"
+  steps:
+    - name: Clean
+      run: ./gradlew clean

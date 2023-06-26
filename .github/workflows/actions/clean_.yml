@@ -1,0 +1,13 @@
+name: build-actions
+
+on: [workflow_call]
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clean
+        run: ./gradlew clean

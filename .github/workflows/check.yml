@@ -20,8 +20,5 @@ jobs:
           distribution: "temurin"
           java-version: 17
 
-      - name: build
-        uses: "./.github/workflows/build.yml"
-
-      - name: clean
-        uses: "./.github/workflows/clean.yml"
+      - uses: "./.github/workflows/actions/build.yml"
+      - uses: "./.github/workflows/actions/clean.yml"

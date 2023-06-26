@@ -1,0 +1,11 @@
+name: 'Build'
+description: 'Build Gradle project'
+runs:
+  using: "composite"
+  steps:
+    - name: Make Gradle Wrapper Executable
+      if: ${{ runner.os != 'Windows' }}
+      run: chmod +x ./gradlew
+
+    - name: Build
+      run: ./gradlew build
