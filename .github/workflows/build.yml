@@ -3,7 +3,6 @@ name: build-actions
 on:
   workflow_dispatch:
   workflow_call:
-  push:
   pull_request:
     types: [opened, reopened]
 
