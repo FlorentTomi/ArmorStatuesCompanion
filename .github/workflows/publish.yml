@@ -33,7 +33,7 @@ jobs:
           distribution: "temurin"
           java-version: 17
 
-      - uses: "./.github/workflows/actions/build.yml"
+      - uses: "./.github/workflows/build-action"
 
       - name: Check Environment Variables
         run: env
@@ -56,4 +56,4 @@ jobs:
           game-versions: "${{env.MINECRAFT_VERSION}}"
           java: "${{env.JAVA_VERSION}}"
 
-      - uses: "./.github/workflows/actions/clean.yml"
+      - uses: "./.github/workflows/clean-action"
