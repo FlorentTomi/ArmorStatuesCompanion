@@ -1,6 +1,10 @@
 name: build-actions
 
-on: [ push, pull_request, workflow_dispatch, workflow_call ]
+on:
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+    types: [opened, reopened]
 
 permissions:
   contents: write
