@@ -9,9 +9,5 @@ jobs:
   clean:
     runs-on: ubuntu-latest
     steps:
-      - name: Make Gradle Wrapper Executable
-        if: ${{ runner.os != 'Windows' }}
-        run: chmod +x ./gradlew
-
-      - name: Build
+      - name: Clean build
         run: ./gradlew clean build
