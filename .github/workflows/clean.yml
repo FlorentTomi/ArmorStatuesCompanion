@@ -9,5 +9,5 @@ jobs:
   clean:
     runs-on: ubuntu-latest
     steps:
-      - name: Clean build
-        run: ./gradlew clean build
+      - name: Clean
+        run: ./gradlew clean
