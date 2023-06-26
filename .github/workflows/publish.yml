@@ -18,8 +18,9 @@ permissions:
   contents: write
 
 jobs:
-  setup:
+  publish:
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -32,14 +33,9 @@ jobs:
           distribution: "temurin"
           java-version: 17
 
-  build:
-    uses: "./.github/workflows/build.yml"
-    needs: [setup]
+      - name: build
+        uses: "./.github/workflows/build.yml"
 
-  publish:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
       - name: Check Environment Variables
         run: env
 
@@ -61,6 +57,5 @@ jobs:
           game-versions: "${{env.MINECRAFT_VERSION}}"
           java: "${{env.JAVA_VERSION}}"
 
-  clean:
-    uses: "./.github/workflows/clean.yml"
-    needs: [publish]
+      - name: clean
+        uses: "./.github/workflows/clean.yml"
