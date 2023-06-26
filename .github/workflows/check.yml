@@ -11,3 +11,4 @@ jobs:
 
   clean:
     uses: "./.github/workflows/clean.yml"
+    needs: [build]
