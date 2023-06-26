@@ -6,6 +6,8 @@ runs:
     - name: Make Gradle Wrapper Executable
       if: ${{ runner.os != 'Windows' }}
       run: chmod +x ./gradlew
+      shell: bash
 
     - name: Build
       run: ./gradlew build
+      shell: bash
