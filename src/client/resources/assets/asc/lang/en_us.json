@@ -1,7 +1,50 @@
 {
-    "category.asc.armor_stand": "Armor Stand Datapack",
+    "category.asc.armor_stand": "Armor Statues Companion",
     "key.asc.check_armor_stand": "Check Armor Stand",
     "key.asc.open_gui": "Open GUI",
     "key.asc.toggle_item_frame_visibility": "Toggle Item Frame visibility",
-    "screen.asc.title": "Armor Stand Companion"
+    "screen.asc.title": "Armor Stand Companion",
+
+    "screen.asc.SHOW": "✓",
+    "screen.asc.HIDE": "✗",
+    "screen.asc.ENABLE": "✓",
+    "screen.asc.DISABLE": "✗",
+    "screen.asc.M8": "➖8",
+    "screen.asc.M3": "➖3",
+    "screen.asc.M1": "➖1",
+    "screen.asc.P1": "➕1",
+    "screen.asc.P3": "➕3",
+    "screen.asc.P8": "➕8",
+    "screen.asc.ANGLE1": "1°",
+    "screen.asc.ANGLE5": "5°",
+    "screen.asc.ANGLE15": "15°",
+    "screen.asc.ANGLE45": "45°",
+    "screen.asc.LEFT": "←",
+    "screen.asc.RIGHT": "→",
+    "screen.asc.TOWARD": "↓",
+    "screen.asc.AWAY": "↑",
+    "screen.asc.TO_HEAD": "\uD83D\uDE00",
+    "screen.asc.TO_FEET": "\uD83D\uDC63",
+    "screen.asc.MX": "➖X",
+    "screen.asc.PX": "➕X",
+    "screen.asc.MY": "➖Y",
+    "screen.asc.PY": "➕Y",
+    "screen.asc.MZ": "➖Z",
+    "screen.asc.PZ": "➕Z",
+
+    "screen.asc.CHECK": "Check Armor Stand",
+
+    "screen.asc.STYLE": "Style",
+    "screen.asc.BASE_PLATE": "Base plate",
+    "screen.asc.ARMS": "Arms",
+    "screen.asc.STAND": "Stand",
+    "screen.asc.NAME": "Name",
+    "screen.asc.SMALL_STAND": "Small stand",
+    "screen.asc.GRAVITY": "Gravity",
+
+    "screen.asc.NUDGE": "Translation",
+
+    "screen.asc.ROTATION": "Rotation",
+
+    "screen.asc.POINTING": "Pointing"
 }

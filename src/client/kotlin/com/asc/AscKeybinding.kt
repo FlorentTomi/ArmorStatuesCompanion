@@ -26,7 +26,7 @@ object AscKeybinding {
         }
 
         while (OPEN_GUI.wasPressed()) {
-            client.setScreen(AscScreen(client))
+            client.setScreen(AscScreen2(client))
         }
 
         while (CHECK_ARMOR_STAND.wasPressed()) {
