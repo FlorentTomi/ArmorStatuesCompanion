@@ -1,6 +1,17 @@
 name: build-actions
 
-on: [workflow_dispatch, push]
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      MINECRAFT_VERSION:
+        description: 'Minecraft version'
+        required: true
+        type: choice
+        options:
+          - 1.19.4
+          - 1.20.1
+
 
 permissions:
   contents: write
@@ -21,4 +32,7 @@ jobs:
           java-version: 17
 
       - uses: "./.github/workflows/build-action"
+        with:
+          mc_version: ${{inputs.MINECRAFT_VERSION}}
+
       - uses: "./.github/workflows/clean-action"

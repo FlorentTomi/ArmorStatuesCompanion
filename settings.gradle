@@ -8,3 +8,7 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
+
+rootProject.name = 'Armor Statues Companion'
+include ':build_versions:1.19.4'
+include ':build_versions:1.20.1'
