@@ -198,30 +198,30 @@ object AscTriggers {
         UNLOCK(1001)
     }
 
-    enum class PosePresets {
-        ATTENTION,
-        CONFIDENT,
-        WALKING,
-        SALUTE,
-        RUNNING,
-        DEATH,
-        POINTING,
-        FACEPALM,
-        BLOCKING,
-        LAZING,
-        LUNGEING,
-        CONFUSED,
-        WINNING,
-        FORMAL,
-        SITTING,
-        SAD,
-        ARABESQUE,
-        JOYOUS,
-        CUPID,
-        STARGAZING,
-        RANDOMIZED,
-        BLOCK,
-        ITEM
+    enum class PosePresets(val id: Identifiers) {
+        ATTENTION(Identifiers.POSE_ATTENTION),
+        CONFIDENT(Identifiers.POSE_CONFIDENT),
+        WALKING(Identifiers.POSE_WALKING),
+        SALUTE(Identifiers.POSE_SALUTE),
+        RUNNING(Identifiers.POSE_RUNNING),
+        DEATH(Identifiers.POSE_DEATH),
+        POINTING(Identifiers.POSE_POINTING),
+        FACEPALM(Identifiers.POSE_FACEPALM),
+        BLOCKING(Identifiers.POSE_BLOCKING),
+        LAZING(Identifiers.POSE_LAZING),
+        LUNGEING(Identifiers.POSE_LUNGEING),
+        CONFUSED(Identifiers.POSE_CONFUSED),
+        WINNING(Identifiers.POSE_WINNING),
+        FORMAL(Identifiers.POSE_FORMAL),
+        SITTING(Identifiers.POSE_SITTING),
+        SAD(Identifiers.POSE_SAD),
+        ARABESQUE(Identifiers.POSE_ARABESQUE),
+        JOYOUS(Identifiers.POSE_JOYOUS),
+        CUPID(Identifiers.POSE_CUPID),
+        STARGAZING(Identifiers.POSE_STARGAZING),
+        RANDOMIZED(Identifiers.POSE_RANDOMIZED),
+        BLOCK(Identifiers.POSE_BLOCK),
+        ITEM(Identifiers.POSE_ITEM)
     }
 
     enum class PositionIncrements {
@@ -233,69 +233,56 @@ object AscTriggers {
         PLUS_8
     }
 
-    fun check(client: MinecraftClient) {
+    enum class BodyParts {
+        HEAD,
+        BODY,
+        LEFT_ARM,
+        RIGHT_ARM,
+        LEFT_LEG,
+        RIGHT_LEG
+    }
+
+    private val client = MinecraftClient.getInstance()
+
+    fun check() {
         AscCommands.executeArmorStandTrigger(client, Identifiers.CHECK)
     }
 
-    fun showBasePlate(client: MinecraftClient, show: Boolean) {
+    fun showBasePlate(show: Boolean) {
         if (show) AscCommands.executeArmorStandTrigger(client, Identifiers.SHOW_BASE_PLATE)
         else AscCommands.executeArmorStandTrigger(client, Identifiers.HIDE_BASE_PLATE)
     }
 
-    fun showArms(client: MinecraftClient, show: Boolean) {
+    fun showArms(show: Boolean) {
         if (show) executeArmorStandTrigger(client, Identifiers.SHOW_ARMS)
         else executeArmorStandTrigger(client, Identifiers.HIDE_ARMS)
     }
 
-    fun showStand(client: MinecraftClient, show: Boolean) {
+    fun showStand(show: Boolean) {
         if (show) executeArmorStandTrigger(client, Identifiers.SHOW_STAND)
         else executeArmorStandTrigger(client, Identifiers.HIDE_STAND)
     }
 
-    fun showName(client: MinecraftClient, show: Boolean) {
+    fun showName(show: Boolean) {
         if (show) executeArmorStandTrigger(client, Identifiers.SHOW_NAME)
         else executeArmorStandTrigger(client, Identifiers.HIDE_NAME)
     }
 
-    fun enableSmallStand(client: MinecraftClient, enable: Boolean) {
+    fun enableSmallStand(enable: Boolean) {
         if (enable) executeArmorStandTrigger(client, Identifiers.ENABLE_SMALL_STAND)
         else executeArmorStandTrigger(client, Identifiers.DISABLE_SMALL_STAND)
     }
 
-    fun enableGravity(client: MinecraftClient, enable: Boolean) {
+    fun enableGravity(enable: Boolean) {
         if (enable) executeArmorStandTrigger(client, Identifiers.ENABLE_GRAVITY)
         else executeArmorStandTrigger(client, Identifiers.DISABLE_GRAVITY)
     }
 
-    fun setPosePreset(client: MinecraftClient, preset: PosePresets) {
-        when (preset) {
-            PosePresets.ATTENTION -> executeArmorStandTrigger(client, Identifiers.POSE_ATTENTION)
-            PosePresets.CONFIDENT -> executeArmorStandTrigger(client, Identifiers.POSE_CONFIDENT)
-            PosePresets.WALKING -> executeArmorStandTrigger(client, Identifiers.POSE_WALKING)
-            PosePresets.SALUTE -> executeArmorStandTrigger(client, Identifiers.POSE_SALUTE)
-            PosePresets.RUNNING -> executeArmorStandTrigger(client, Identifiers.POSE_RUNNING)
-            PosePresets.DEATH -> executeArmorStandTrigger(client, Identifiers.POSE_DEATH)
-            PosePresets.POINTING -> executeArmorStandTrigger(client, Identifiers.POSE_POINTING)
-            PosePresets.FACEPALM -> executeArmorStandTrigger(client, Identifiers.POSE_FACEPALM)
-            PosePresets.BLOCKING -> executeArmorStandTrigger(client, Identifiers.POSE_BLOCKING)
-            PosePresets.LAZING -> executeArmorStandTrigger(client, Identifiers.POSE_LAZING)
-            PosePresets.LUNGEING -> executeArmorStandTrigger(client, Identifiers.POSE_LUNGEING)
-            PosePresets.CONFUSED -> executeArmorStandTrigger(client, Identifiers.POSE_CONFUSED)
-            PosePresets.WINNING -> executeArmorStandTrigger(client, Identifiers.POSE_WINNING)
-            PosePresets.FORMAL -> executeArmorStandTrigger(client, Identifiers.POSE_FORMAL)
-            PosePresets.SITTING -> executeArmorStandTrigger(client, Identifiers.POSE_SITTING)
-            PosePresets.SAD -> executeArmorStandTrigger(client, Identifiers.POSE_SAD)
-            PosePresets.ARABESQUE -> executeArmorStandTrigger(client, Identifiers.POSE_ARABESQUE)
-            PosePresets.JOYOUS -> executeArmorStandTrigger(client, Identifiers.POSE_JOYOUS)
-            PosePresets.CUPID -> executeArmorStandTrigger(client, Identifiers.POSE_CUPID)
-            PosePresets.STARGAZING -> executeArmorStandTrigger(client, Identifiers.POSE_STARGAZING)
-            PosePresets.RANDOMIZED -> executeArmorStandTrigger(client, Identifiers.POSE_RANDOMIZED)
-            PosePresets.BLOCK -> executeArmorStandTrigger(client, Identifiers.POSE_BLOCK)
-            PosePresets.ITEM -> executeArmorStandTrigger(client, Identifiers.POSE_ITEM)
-        }
+    fun setPosePreset(preset: PosePresets) {
+        executeArmorStandTrigger(client, preset.id)
     }
 
-    fun nudgePositionX(client: MinecraftClient, increment: PositionIncrements?) {
+    fun nudgePositionX(increment: PositionIncrements?) {
         when (increment) {
             PositionIncrements.MINUS_1 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_X_M1)
             PositionIncrements.MINUS_3 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_X_M3)
@@ -307,7 +294,7 @@ object AscTriggers {
         }
     }
 
-    fun nudgePositionY(client: MinecraftClient, increment: PositionIncrements?) {
+    fun nudgePositionY(increment: PositionIncrements?) {
         when (increment) {
             PositionIncrements.MINUS_1 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Y_M1)
             PositionIncrements.MINUS_3 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Y_M3)
@@ -319,7 +306,7 @@ object AscTriggers {
         }
     }
 
-    fun nudgePositionZ(client: MinecraftClient, increment: PositionIncrements?) {
+    fun nudgePositionZ(increment: PositionIncrements?) {
         when (increment) {
             PositionIncrements.MINUS_1 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Z_M1)
             PositionIncrements.MINUS_3 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Z_M3)
@@ -331,7 +318,7 @@ object AscTriggers {
         }
     }
 
-    fun nudgePositionAlignedX(client: MinecraftClient, increment: PositionIncrements?) {
+    fun nudgePositionAlignedX(increment: PositionIncrements?) {
         when (increment) {
             PositionIncrements.MINUS_1 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_X_ALIGNED_M1)
             PositionIncrements.MINUS_3 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_X_ALIGNED_M3)
@@ -343,7 +330,7 @@ object AscTriggers {
         }
     }
 
-    fun nudgePositionAlignedZ(client: MinecraftClient, increment: PositionIncrements?) {
+    fun nudgePositionAlignedZ(increment: PositionIncrements?) {
         when (increment) {
             PositionIncrements.MINUS_1 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Z_ALIGNED_M1)
             PositionIncrements.MINUS_3 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Z_ALIGNED_M3)
@@ -355,7 +342,7 @@ object AscTriggers {
         }
     }
 
-    fun nudgePositionExactX(client: MinecraftClient, increment: PositionIncrements?) {
+    fun nudgePositionExactX(increment: PositionIncrements?) {
         when (increment) {
             PositionIncrements.MINUS_1 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_X_EXACT_M1)
             PositionIncrements.MINUS_3 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_X_EXACT_M3)
@@ -367,7 +354,7 @@ object AscTriggers {
         }
     }
 
-    fun nudgePositionExactY(client: MinecraftClient, increment: PositionIncrements?) {
+    fun nudgePositionExactY(increment: PositionIncrements?) {
         when (increment) {
             PositionIncrements.MINUS_1 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Y_EXACT_M1)
             PositionIncrements.MINUS_3 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Y_EXACT_M3)
@@ -379,7 +366,7 @@ object AscTriggers {
         }
     }
 
-    fun nudgePositionExactZ(client: MinecraftClient, increment: PositionIncrements?) {
+    fun nudgePositionExactZ(increment: PositionIncrements?) {
         when (increment) {
             PositionIncrements.MINUS_1 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Z_EXACT_M1)
             PositionIncrements.MINUS_3 -> executeArmorStandTrigger(client, Identifiers.NUDGE_POS_Z_EXACT_M3)
@@ -391,220 +378,169 @@ object AscTriggers {
         }
     }
 
-    fun setRotationStepTo1(client: MinecraftClient) {
+    fun setRotationStepTo1() {
         executeArmorStandTrigger(client, Identifiers.SET_ROTATION_STEP_1)
     }
 
-    fun setRotationStepTo5(client: MinecraftClient) {
+    fun setRotationStepTo5() {
         executeArmorStandTrigger(client, Identifiers.SET_ROTATION_STEP_5)
     }
 
-    fun setRotationStepTo15(client: MinecraftClient) {
+    fun setRotationStepTo15() {
         executeArmorStandTrigger(client, Identifiers.SET_ROTATION_STEP_15)
     }
 
-    fun setRotationStepTo45(client: MinecraftClient) {
+    fun setRotationStepTo45() {
         executeArmorStandTrigger(client, Identifiers.SET_ROTATION_STEP_45)
     }
 
-    fun rotateLeft(client: MinecraftClient) {
+    fun rotateLeft() {
         executeArmorStandTrigger(client, Identifiers.ROTATE_LEFT)
     }
 
-    fun rotateRight(client: MinecraftClient) {
+    fun rotateRight() {
         executeArmorStandTrigger(client, Identifiers.ROTATE_RIGHT)
     }
 
-    fun rotateToward(client: MinecraftClient) {
+    fun rotateToward() {
         executeArmorStandTrigger(client, Identifiers.ROTATE_TOWARD)
     }
 
-    fun rotateAway(client: MinecraftClient) {
+    fun rotateAway() {
         executeArmorStandTrigger(client, Identifiers.ROTATE_AWAY)
     }
 
-    fun pointHeadTo(client: MinecraftClient, toHead: Boolean) {
+    fun pointHeadTo(toHead: Boolean) {
         if (toHead) executeArmorStandTrigger(client, Identifiers.POINT_HEAD_TO_HEAD)
         else executeArmorStandTrigger(client, Identifiers.POINT_HEAD_TO_FEET)
     }
 
-    fun pointBodyTo(client: MinecraftClient, toHead: Boolean) {
+    fun pointBodyTo(toHead: Boolean) {
         if (toHead) executeArmorStandTrigger(client, Identifiers.POINT_BODY_TO_HEAD)
         else executeArmorStandTrigger(client, Identifiers.POINT_BODY_TO_FEET)
     }
 
-    fun pointRightArmTo(client: MinecraftClient, toHead: Boolean) {
+    fun pointRightArmTo(toHead: Boolean) {
         if (toHead) executeArmorStandTrigger(client, Identifiers.POINT_RIGHT_ARM_TO_HEAD)
         else executeArmorStandTrigger(client, Identifiers.POINT_RIGHT_ARM_TO_FEET)
     }
 
-    fun pointLeftArmTo(client: MinecraftClient, toHead: Boolean) {
+    fun pointLeftArmTo(toHead: Boolean) {
         if (toHead) executeArmorStandTrigger(client, Identifiers.POINT_LEFT_ARM_TO_HEAD)
         else executeArmorStandTrigger(client, Identifiers.POINT_LEFT_ARM_TO_FEET)
     }
 
-    fun pointRightLegTo(client: MinecraftClient, toHead: Boolean) {
+    fun pointRightLegTo(toHead: Boolean) {
         if (toHead) executeArmorStandTrigger(client, Identifiers.POINT_RIGHT_LEG_TO_HEAD)
         else executeArmorStandTrigger(client, Identifiers.POINT_RIGHT_LEG_TO_FEET)
     }
 
-    fun pointLeftLegTo(client: MinecraftClient, toHead: Boolean) {
+    fun pointLeftLegTo(toHead: Boolean) {
         if (toHead) executeArmorStandTrigger(client, Identifiers.POINT_LEFT_LEG_TO_HEAD)
         else executeArmorStandTrigger(client, Identifiers.POINT_LEFT_LEG_TO_FEET)
     }
 
-    fun adjustPoseHeadX(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_HEAD_X_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_HEAD_X_MINUS)
+    fun adjustPoseX(increment: Boolean, bodyPart: BodyParts) {
+        val id: Identifiers = when (bodyPart) {
+            BodyParts.HEAD -> if (increment) Identifiers.POSE_ADJ_HEAD_X_PLUS else Identifiers.POSE_ADJ_HEAD_X_MINUS
+            BodyParts.BODY -> if (increment) Identifiers.POSE_ADJ_BODY_X_PLUS else Identifiers.POSE_ADJ_BODY_X_MINUS
+            BodyParts.LEFT_ARM -> if (increment) Identifiers.POSE_ADJ_LEFT_ARM_X_PLUS else Identifiers.POSE_ADJ_LEFT_ARM_X_MINUS
+            BodyParts.RIGHT_ARM -> if (increment) Identifiers.POSE_ADJ_RIGHT_ARM_X_PLUS else Identifiers.POSE_ADJ_RIGHT_ARM_X_MINUS
+            BodyParts.LEFT_LEG -> if (increment) Identifiers.POSE_ADJ_LEFT_LEG_X_PLUS else Identifiers.POSE_ADJ_LEFT_LEG_X_MINUS
+            BodyParts.RIGHT_LEG -> if (increment) Identifiers.POSE_ADJ_RIGHT_LEG_X_PLUS else Identifiers.POSE_ADJ_RIGHT_LEG_X_MINUS
+        }
+
+        executeArmorStandTrigger(client, id)
     }
 
-    fun adjustPoseHeadY(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_HEAD_Y_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_HEAD_Y_MINUS)
+    fun adjustPoseY(increment: Boolean, bodyPart: BodyParts) {
+        val id: Identifiers = when (bodyPart) {
+            BodyParts.HEAD -> if (increment) Identifiers.POSE_ADJ_HEAD_Y_PLUS else Identifiers.POSE_ADJ_HEAD_Y_MINUS
+            BodyParts.BODY -> if (increment) Identifiers.POSE_ADJ_BODY_Y_PLUS else Identifiers.POSE_ADJ_BODY_Y_MINUS
+            BodyParts.LEFT_ARM -> if (increment) Identifiers.POSE_ADJ_LEFT_ARM_Y_PLUS else Identifiers.POSE_ADJ_LEFT_ARM_Y_MINUS
+            BodyParts.RIGHT_ARM -> if (increment) Identifiers.POSE_ADJ_RIGHT_ARM_Y_PLUS else Identifiers.POSE_ADJ_RIGHT_ARM_Y_MINUS
+            BodyParts.LEFT_LEG -> if (increment) Identifiers.POSE_ADJ_LEFT_LEG_Y_PLUS else Identifiers.POSE_ADJ_LEFT_LEG_Y_MINUS
+            BodyParts.RIGHT_LEG -> if (increment) Identifiers.POSE_ADJ_RIGHT_LEG_Y_PLUS else Identifiers.POSE_ADJ_RIGHT_LEG_Y_MINUS
+        }
+
+        executeArmorStandTrigger(client, id)
     }
 
-    fun adjustPoseHeadZ(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_HEAD_Z_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_HEAD_Z_MINUS)
+    fun adjustPoseZ(increment: Boolean, bodyPart: BodyParts) {
+        val id: Identifiers = when (bodyPart) {
+            BodyParts.HEAD -> if (increment) Identifiers.POSE_ADJ_HEAD_Z_PLUS else Identifiers.POSE_ADJ_HEAD_Z_MINUS
+            BodyParts.BODY -> if (increment) Identifiers.POSE_ADJ_BODY_Z_PLUS else Identifiers.POSE_ADJ_BODY_Z_MINUS
+            BodyParts.LEFT_ARM -> if (increment) Identifiers.POSE_ADJ_LEFT_ARM_Z_PLUS else Identifiers.POSE_ADJ_LEFT_ARM_Z_MINUS
+            BodyParts.RIGHT_ARM -> if (increment) Identifiers.POSE_ADJ_RIGHT_ARM_Z_PLUS else Identifiers.POSE_ADJ_RIGHT_ARM_Z_MINUS
+            BodyParts.LEFT_LEG -> if (increment) Identifiers.POSE_ADJ_LEFT_LEG_Z_PLUS else Identifiers.POSE_ADJ_LEFT_LEG_Z_MINUS
+            BodyParts.RIGHT_LEG -> if (increment) Identifiers.POSE_ADJ_RIGHT_LEG_Z_PLUS else Identifiers.POSE_ADJ_RIGHT_LEG_Z_MINUS
+        }
+
+        executeArmorStandTrigger(client, id)
     }
 
-    fun adjustPoseBodyX(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_BODY_X_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_BODY_X_MINUS)
-    }
-
-    fun adjustPoseBodyY(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_BODY_Y_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_BODY_Y_MINUS)
-    }
-
-    fun adjustPoseBodyZ(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_BODY_Z_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_BODY_Z_MINUS)
-    }
-
-    fun adjustPoseRightArmX(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_ARM_X_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_ARM_X_MINUS)
-    }
-
-    fun adjustPoseRightArmY(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_ARM_Y_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_ARM_Y_MINUS)
-    }
-
-    fun adjustPoseRightArmZ(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_ARM_Z_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_ARM_Z_MINUS)
-    }
-
-    fun adjustPoseLeftArmX(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_ARM_X_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_ARM_X_MINUS)
-    }
-
-    fun adjustPoseLeftArmY(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_ARM_Y_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_ARM_Y_MINUS)
-    }
-
-    fun adjustPoseLeftArmZ(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_ARM_Z_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_ARM_Z_MINUS)
-    }
-
-    fun adjustPoseRightLegX(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_LEG_X_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_LEG_X_MINUS)
-    }
-
-    fun adjustPoseRightLegY(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_LEG_Y_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_LEG_Y_MINUS)
-    }
-
-    fun adjustPoseRightLegZ(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_LEG_Z_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_RIGHT_LEG_Z_MINUS)
-    }
-
-    fun adjustPoseLeftLegX(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_LEG_X_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_LEG_X_MINUS)
-    }
-
-    fun adjustPoseLeftLegY(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_LEG_Y_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_LEG_Y_MINUS)
-    }
-
-    fun adjustPoseLeftLegZ(client: MinecraftClient, increment: Boolean) {
-        if (increment) executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_LEG_Z_PLUS)
-        else executeArmorStandTrigger(client, Identifiers.POSE_ADJ_LEFT_LEG_Z_MINUS)
-    }
-
-    fun setBlockOnSurface(client: MinecraftClient) {
+    fun setBlockOnSurface() {
         executeArmorStandTrigger(client, Identifiers.SET_BLOCK_ON_SURFACE)
     }
 
-    fun setItemOnSurface(client: MinecraftClient) {
+    fun setItemOnSurface() {
         executeArmorStandTrigger(client, Identifiers.SET_ITEM_ON_SURFACE)
     }
 
-    fun setItemFlatOnSurface(client: MinecraftClient) {
+    fun setItemFlatOnSurface() {
         executeArmorStandTrigger(client, Identifiers.SET_ITEM_FLAT_ON_SURFACE)
     }
 
-    fun setToolFlatOnSurface(client: MinecraftClient) {
+    fun setToolFlatOnSurface() {
         executeArmorStandTrigger(client, Identifiers.SET_TOOL_FLAT_ON_SURFACE)
     }
 
-    fun setToolRack(client: MinecraftClient) {
+    fun setToolRack() {
         executeArmorStandTrigger(client, Identifiers.SET_TOOL_RACK)
     }
 
-    fun swapMainHandOffhand(client: MinecraftClient) {
+    fun swapMainHandOffhand() {
         executeArmorStandTrigger(client, Identifiers.SWAP_MAINHAND_OFFHAND)
     }
 
-    fun swapMainHandHead(client: MinecraftClient) {
+    fun swapMainHandHead() {
         executeArmorStandTrigger(client, Identifiers.SWAP_MAINHAND_HEAD)
     }
 
-    fun mirrorArmsLeftToRight(client: MinecraftClient) {
+    fun mirrorArmsLeftToRight() {
         executeArmorStandTrigger(client, Identifiers.MIRROR_ARMS_LR)
     }
 
-    fun mirrorArmsRightToLeft(client: MinecraftClient) {
+    fun mirrorArmsRightToLeft() {
         executeArmorStandTrigger(client, Identifiers.MIRROR_ARMS_RL)
     }
 
-    fun mirrorLegsLeftToRight(client: MinecraftClient) {
+    fun mirrorLegsLeftToRight() {
         executeArmorStandTrigger(client, Identifiers.MIRROR_LEGS_LR)
     }
 
-    fun mirrorLegsRightToLeft(client: MinecraftClient) {
+    fun mirrorLegsRightToLeft() {
         executeArmorStandTrigger(client, Identifiers.MIRROR_LEGS_RL)
     }
 
-    fun flip(client: MinecraftClient) {
+    fun flip() {
         executeArmorStandTrigger(client, Identifiers.FLIP)
     }
 
-    fun copy(client: MinecraftClient) {
+    fun copy() {
         executeArmorStandTrigger(client, Identifiers.COPY)
     }
 
-    fun paste(client: MinecraftClient) {
+    fun paste() {
         executeArmorStandTrigger(client, Identifiers.PASTE)
     }
 
-    fun lock(client: MinecraftClient, lock: Boolean) {
+    fun lock(lock: Boolean) {
         if (lock) executeArmorStandTrigger(client, Identifiers.LOCK)
         else executeArmorStandTrigger(client, Identifiers.UNLOCK)
     }
 
-    fun seal(client: MinecraftClient, seal: Boolean) {
+    fun seal(seal: Boolean) {
         if (seal) executeCommand(client, "function armor_statues:sealing/seal")
         else executeCommand(client, "function armor_statues:sealing/unseal")
     }
