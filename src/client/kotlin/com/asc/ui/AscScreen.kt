@@ -9,7 +9,7 @@ import io.wispforest.owo.ui.container.Containers
 import io.wispforest.owo.ui.container.FlowLayout
 import io.wispforest.owo.ui.container.GridLayout
 import io.wispforest.owo.ui.core.*
-import io.wispforest.owo.ui.util.NinePatchTexture
+import io.wispforest.owo.ui.util.NinePatchRenderer
 import net.minecraft.client.MinecraftClient
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
@@ -17,25 +17,18 @@ import java.util.function.Consumer
 
 class AscScreen() : BaseOwoScreen<FlowLayout>() {
     companion object {
-        private val onActiveTextureId = Identifier("asc", "button/on_active")
-        private val offActiveTextureId = Identifier("asc", "button/off_active")
-        private val onHoveredTextureId = Identifier("asc", "button/on_hovered")
-        private val offHoveredTextureId = Identifier("asc", "button/off_hovered")
-        private val onDisabledTextureId = Identifier("asc", "button/on_disabled")
-        private val offDisabledTextureId = Identifier("asc", "button/off_disabled")
-
         private val onRenderer = ButtonComponent.Renderer { context, button, _ ->
             RenderSystem.enableDepthTest()
             val texture =
-                if (button.active) (if (button.isHovered) onHoveredTextureId else onActiveTextureId) else onDisabledTextureId
-            NinePatchTexture.draw(texture, context, button.x, button.y, button.width, button.height)
+                if (button.active) (if (button.isHovered) AscOnOffButton.onHoveredTexture else AscOnOffButton.onActiveTexture) else AscOnOffButton.onDisabledTexture
+            texture.draw(context, button.x, button.y, button.width, button.height)
         }
 
         private val offRenderer = ButtonComponent.Renderer { context, button, _ ->
             RenderSystem.enableDepthTest()
             val texture =
-                if (button.active) (if (button.isHovered) offHoveredTextureId else offActiveTextureId) else offDisabledTextureId
-            NinePatchTexture.draw(texture, context, button.x, button.y, button.width, button.height)
+                if (button.active) (if (button.isHovered) AscOnOffButton.offHoveredTexture else AscOnOffButton.offActiveTexture) else AscOnOffButton.offDisabledTexture
+            texture.draw(context, button.x, button.y, button.width, button.height)
         }
     }
 
