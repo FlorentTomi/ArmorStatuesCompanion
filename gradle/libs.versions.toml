@@ -1,0 +1,34 @@
+[versions]
+kotlin = "1.8.10"
+minecraft = "1.20.1"
+architectury = "9.1.11"
+
+# Fabric
+fabricLoader = "0.14.21"
+fabricApi = "0.86.0+1.20.1"
+fabricLanguageKotlin = "1.10.8+kotlin.1.9.0"
+
+# Forge
+forge = "1.20.1-47.1.0"
+kotlinForforge = "4.4.0"
+
+# owo-lib
+owo_lib = "0.11.0+1.20"
+
+[libraries]
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+architectury = { module = "dev.architectury:architectury", version.ref = "architectury" }
+
+architectury_fabric = { module = "dev.architectury:architectury-fabric", version.ref = "architectury" }
+fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabricLoader" }
+fabric_api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabricApi" }
+fabric_languageKotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabricLanguageKotlin" }
+
+architectury_forge = { module = "dev.architectury:architectury-forge", version.ref = "architectury" }
+forge = { module = "net.minecraftforge:forge", version.ref = "forge" }
+kotlinForforge = { module = "thedarkcolour:kotlinforforge", version.ref = "kotlinForforge" }
+
+kotlin_gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+owo_lib = { module = "io.wispforest:owo-lib", version.ref = "owo_lib" }
+owo_sentinel = { module = "io.wispforest:owo-sentinel", version.ref = "owo_lib" }

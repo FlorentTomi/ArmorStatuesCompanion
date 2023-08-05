@@ -1,15 +1,18 @@
-<p align="center">
+<center>
     <img src="https://i.imgur.com/DcaI318.png" alt="Logo">
-</p>
+</center>
 
 <br>
 
-<p align="center">
+<center>
     <a href="https://modrinth.com/mod/armor-statues-companion">
         <img alt="Static Badge" src="https://img.shields.io/badge/modrinth-gray?style=for-the-badge&logo=modrinth&logoColor=white&labelColor=green">
     </a>
-</p>
-<p align="center">
+</center>
+
+<br>
+
+<center>
     <a href="https://github.com/FlorentTomi/ArmorStatuesCompanion/">
         <img alt="Static Badge" src="https://img.shields.io/badge/github-gray?style=for-the-badge&logo=github&logoColor=white&link=https%3A%2F%2Fgithub.com%2FFlorentTomi%2FArmorStatuesCompanion">
     </a>
@@ -19,15 +22,20 @@
     <a href="https://github.com/sponsors/FlorentTomi">
         <img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/FlorentTomi?style=for-the-badge&logo=github">
     </a>
-</p>
-<p align="center">
+</center>
+
+<br>
+
+<center>
     <a>
         <img alt="Static Badge" src="https://img.shields.io/badge/minecraft-gray?style=for-the-badge&label=1.19.4&labelColor=green">
     </a>
     <a>
         <img alt="Static Badge" src="https://img.shields.io/badge/minecraft-gray?style=for-the-badge&label=1.20.1&labelColor=green">
     </a>
-</p>
+</center>
+
+<br>
 
 # Armor Statues Companion
 
