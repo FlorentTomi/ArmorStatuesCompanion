@@ -1,7 +1,0 @@
-name: 'Clean'
-description: 'Clean Gradle project'
-runs:
-  using: "composite"
-  steps:
-    - run: ./gradlew clean
-      shell: bash

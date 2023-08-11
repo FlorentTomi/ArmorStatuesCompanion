@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "armor-statues-companion",
+  "version": "${version}",
+  "environment": "client",
+  "name": "Armor Statues Companion",
+  "description": "A mod companion for the Armor Statues Datapack (https://www.curseforge.com/minecraft/customization/armor-statues-datapack)",
+  "authors": [
+    "Asch",
+    "CEZero11"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/armor-statues-companion",
+    "sources": "https://github.com/FlorentTomi/ArmorStatuesCompanion",
+    "issues": "https://github.com/FlorentTomi/ArmorStatuesCompanion/issues"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/armor-statues-companion/icon.png",
+  "entrypoints": {
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "net.asch.asc.fabric.ModClient"
+      }
+    ]
+  },
+  "mixins": [
+    "armor-statues-companion-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=1.8.22",
+    "owo-lib": ">=0.11"
+  }
+}
