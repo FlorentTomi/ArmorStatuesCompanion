@@ -1,6 +1,11 @@
+import com.matthewprenger.cursegradle.CurseProject
+import com.matthewprenger.cursegradle.CurseRelation
+import com.matthewprenger.cursegradle.Options
+
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("com.modrinth.minotaur") version "2.+"
+    id("com.matthewprenger.cursegradle") version "1.4.0"
 }
 
 repositories {
@@ -76,19 +81,45 @@ tasks {
     }
 }
 
-modrinth {
-    token.set(System.getenv("MODRINTH_TOKEN"))
-    projectId.set("armor-statues-companion")
-    versionNumber.set("$version")
-    versionType.set("release")
-    loaders.set(listOf("fabric", "quilt"))
-    uploadFile.set(tasks.remapJar)
-    gameVersions.addAll("${rootProject.property("minecraftVersion")}")
-    syncBodyFrom.set(rootProject.file("DESCRIPTION.md").readText())
-    debugMode.set(true)
-    dependencies {
-        required.project("fabric-language-kotlin")
-        required.project("fabric-api")
-        required.project("owo-lib")
+if (rootProject.hasProperty("publish.modrinth_token")) {
+    modrinth {
+        token.set("${rootProject.property("publish.modrinth_token")}")
+        projectId.set("armor-statues-companion")
+        versionNumber.set("$version")
+        versionType.set("release")
+        loaders.set(listOf("fabric", "quilt"))
+        uploadFile.set(tasks.remapJar)
+        gameVersions.addAll("${rootProject.property("minecraftVersion")}")
+        changelog.set(rootProject.file("CHANGELOG.md").readText())
+        syncBodyFrom.set(rootProject.file("DESCRIPTION.md").readText())
+        debugMode.set(true)
+        dependencies {
+            required.project("fabric-language-kotlin")
+            required.project("fabric-api")
+            required.project("owo-lib")
+        }
+    }
+}
+
+if (rootProject.hasProperty("publish.cf_token")) {
+    curseforge {
+        apiKey = "${rootProject.property("publish.cf_token")}"
+        project(closureOf<CurseProject> {
+            id = "904018"
+            changelogType = "markdown"
+            changelog = rootProject.file("CHANGELOG.md")
+            releaseType = "release"
+            addGameVersion("${rootProject.property("minecraftVersion")}")
+            mainArtifact(tasks.remapJar.get().archiveFile)
+            relations(closureOf<CurseRelation> {
+                requiredDependency("fabric-language-kotlin")
+                requiredDependency("fabric-api")
+                requiredDependency("owo-lib")
+            })
+        })
+
+        options(closureOf<Options> {
+            debug = false
+        })
     }
 }
