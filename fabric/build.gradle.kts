@@ -1,6 +1,7 @@
 import com.matthewprenger.cursegradle.CurseProject
 import com.matthewprenger.cursegradle.CurseRelation
 import com.matthewprenger.cursegradle.Options
+import java.net.URI
 
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
@@ -80,6 +81,23 @@ tasks {
         from(commonSources.archiveFile.map { zipTree(it) })
     }
 }
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = URI.create("https://maven.pkg.github.com/FlorentTomi/ArmorStatuesCompanion")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
+//if (System.hasProperty("publish.github.token")) {
+//
+//}
 
 if (rootProject.hasProperty("publish.modrinth_token")) {
     modrinth {
