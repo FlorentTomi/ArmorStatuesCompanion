@@ -1,9 +1,9 @@
-## [v1.4.0+1.20.2]
+## [v1.4.1+1.20.4]
 
 ---
 
-### [`Armor Statues Datapack`](https://www.curseforge.com/minecraft/customization/armor-statues-datapack) support
+### API
 
 ---
 
-- Added display name legacy support
+- Minecraft 1.20.4 support

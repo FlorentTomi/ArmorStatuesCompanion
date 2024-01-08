@@ -50,7 +50,7 @@ class GridLayout(hSizing: Sizing, vSizing: Sizing, rows: Int, columns: Int) :
             for (column in 0 until columns) {
                 val columnSize = columnSizes[column]
 
-                mountChild(getChild(row, column), childSpace) { child ->
+                mountChild(getChild(row, column)) { child ->
                     child.mount(
                         this,
                         layoutX.toInt() + child.margins()
