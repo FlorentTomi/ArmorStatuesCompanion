@@ -38,12 +38,12 @@ tasks.withType<ProcessResources>() {
 }
 
 tasks.withType<JavaCompile>().configureEach {
-    options.release = 17
+    options.release = 21
 }
 
 tasks.withType<KotlinCompile>().all {
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "21"
     }
 }
 

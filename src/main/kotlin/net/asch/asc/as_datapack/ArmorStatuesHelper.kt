@@ -30,7 +30,7 @@ object ArmorStatuesHelper {
         if (canCraftWand(client, wandType)) {
             sendCommand(client, "trigger ${wandType.triggerValue}")
         } else {
-            val expectedItem = Registries.ITEM.get(Identifier(wandType.expectedItem))
+            val expectedItem = Registries.ITEM.get(Identifier.of(wandType.expectedItem))
             client.player?.sendMessage(Text.translatable("asc.chat.cant_craft_wand", Text.translatable("asc.item.$wandType"), expectedItem.name))
         }
     }
@@ -38,8 +38,8 @@ object ArmorStatuesHelper {
     private fun canCraftWand(client: MinecraftClient, wandType: WandTypes): Boolean {
         val player = client.player ?: return false
 
-        val expectedItem = Registries.ITEM.get(Identifier(wandType.expectedItem))
-        val checkForItem = { itemStack: ItemStack -> itemStack.isOf(expectedItem) && !itemStack.hasNbt() }
+        val expectedItem = Registries.ITEM.get(Identifier.of(wandType.expectedItem))
+        val checkForItem = { itemStack: ItemStack -> itemStack.isOf(expectedItem) && itemStack.componentChanges.isEmpty }
 
         val playerMainInventory = player.inventory.main
         for (item in playerMainInventory) {
