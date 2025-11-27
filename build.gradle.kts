@@ -10,7 +10,18 @@ plugins {
 version = libs.versions.armorStatuesCompanion.get()
 
 repositories {
-    maven { setUrl("https://maven.wispforest.io") }
+    mavenCentral()
+
+    // Mojang / Fabric for MC + mappings (Loom also wires some of this, but it's safe)
+    maven {
+        name = "Fabric"
+        url = uri("https://maven.fabricmc.net/")
+    }
+
+    // WispForest for owo, etc.
+    maven {
+        url = uri("https://maven.wispforest.io")
+    }
 }
 
 dependencies {

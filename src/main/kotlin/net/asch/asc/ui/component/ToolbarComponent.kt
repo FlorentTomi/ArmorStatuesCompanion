@@ -14,25 +14,42 @@ import io.wispforest.owo.ui.util.NinePatchTexture
 import io.wispforest.owo.util.EventStream
 import io.wispforest.owo.util.Observable
 import net.asch.asc.ModClient
-import net.asch.asc.ui.component.ToolbarComponent.ToolButtonComponent.OnActiveEvent
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import java.util.function.Consumer
 
-class ToolbarComponent : FlowLayout(Sizing.fill(100), Sizing.content(), Algorithm.HORIZONTAL) {
-    private val layout = Containers.horizontalFlow(Sizing.content(), Sizing.content())
-    private val exclusiveGroups: MutableMap<String, MutableList<ToolButtonComponent>> = mutableMapOf()
+class ToolbarComponent :
+    FlowLayout(Sizing.fill(100), Sizing.content(), Algorithm.HORIZONTAL) {
+
+    private val layout =
+        Containers.horizontalFlow(Sizing.content(), Sizing.content())
+    private val exclusiveGroups: MutableMap<String, MutableList<ToolButtonComponent>> =
+        mutableMapOf()
 
     companion object {
-        private val BASE_ACTIVE_TEXTURE_ID = Identifier.of(ModClient.MOD_ID, "toolbar_base_button/active")
-        private val BASE_DISABLED_TEXTURE_ID = Identifier.of(ModClient.MOD_ID, "toolbar_base_button/disabled")
-        private val BASE_HOVERED_TEXTURE_ID = Identifier.of(ModClient.MOD_ID, "toolbar_base_button/hovered")
+        private val BASE_ACTIVE_TEXTURE_ID =
+            Identifier.of(ModClient.MOD_ID, "toolbar_base_button/active")
+        private val BASE_DISABLED_TEXTURE_ID =
+            Identifier.of(ModClient.MOD_ID, "toolbar_base_button/disabled")
+        private val BASE_HOVERED_TEXTURE_ID =
+            Identifier.of(ModClient.MOD_ID, "toolbar_base_button/hovered")
 
         private val BASE_RENDERER = Renderer { context, button, _ ->
-            RenderSystem.enableDepthTest()
             val texture =
-                if (button.active) (if (button.isHovered) BASE_HOVERED_TEXTURE_ID else BASE_ACTIVE_TEXTURE_ID) else BASE_DISABLED_TEXTURE_ID
-            NinePatchTexture.draw(texture, context, button.x, button.y, button.width, button.height)
+                if (button.active) {
+                    if (button.isHovered) BASE_HOVERED_TEXTURE_ID else BASE_ACTIVE_TEXTURE_ID
+                } else {
+                    BASE_DISABLED_TEXTURE_ID
+                }
+
+            NinePatchTexture.draw(
+                texture,
+                context,
+                button.x,
+                button.y,
+                button.width,
+                button.height
+            )
         }
     }
 
@@ -44,25 +61,29 @@ class ToolbarComponent : FlowLayout(Sizing.fill(100), Sizing.content(), Algorith
         layout.verticalAlignment(VerticalAlignment.CENTER)
         layout.margins(Insets.of(2))
         layout.gap(2)
+
         child(layout)
     }
 
-    fun toolbox(text: Text, id: String, exclusiveGroup: String? = null, action: Consumer<ToolButtonComponent>) {
+    fun toolbox(
+        text: Text,
+        id: String,
+        exclusiveGroup: String? = null,
+        action: Consumer<ToolButtonComponent>
+    ) {
         val btn = ToolButtonComponent(text, action)
         btn.id(id)
         layout.child(btn)
 
         if (exclusiveGroup != null) {
-            if (exclusiveGroup !in exclusiveGroups) {
-                exclusiveGroups[exclusiveGroup] = mutableListOf()
-            }
+            val list = exclusiveGroups.getOrPut(exclusiveGroup) { mutableListOf() }
+            list.add(btn)
 
-            exclusiveGroups[exclusiveGroup]!!.add(btn)
             btn.onActiveStream.source().subscribe { newActive ->
                 if (newActive) {
-                    for (excBtn in exclusiveGroups[exclusiveGroup]!!) {
-                        if (excBtn != btn) {
-                            excBtn.setInactive()
+                    for (other in list) {
+                        if (other !== btn) {
+                            other.setInactive()
                         }
                     }
                 }
@@ -76,40 +97,54 @@ class ToolbarComponent : FlowLayout(Sizing.fill(100), Sizing.content(), Algorith
     }
 
     fun press(group: String, id: String?) {
-        if (id == null) {
-            return
-        }
+        if (id == null) return
+        val groupButtons = exclusiveGroups[group] ?: return
 
-        if (group !in exclusiveGroups) {
-            return
-        }
-
-        val btn = exclusiveGroups[group]!!.find { menuComponent -> menuComponent.id() == id }
-        btn?.onPress()
+        val btn = groupButtons.find { it.id() == id }
+        btn?.press()
     }
 
-    class ToolButtonComponent(text: Text, private val onPressAction: Consumer<ToolButtonComponent>) :
-        ButtonComponent(text, { btn -> onPressAction.accept(btn as ToolButtonComponent) }) {
+    class ToolButtonComponent(
+        text: Text,
+        private val onPressAction: Consumer<ToolButtonComponent>
+    ) : ButtonComponent(
+        text,
+        { b -> onPressAction.accept(b as ToolButtonComponent) }
+    ) {
         companion object {
-            private val ACTIVE_TEXTURE_ID = Identifier.of(ModClient.MOD_ID, "toolbar_button/active")
-            private val DISABLED_TEXTURE_ID = Identifier.of(ModClient.MOD_ID, "toolbar_button/disabled")
-            private val HOVERED_TEXTURE_ID = Identifier.of(ModClient.MOD_ID, "toolbar_button/hovered")
+            private val ACTIVE_TEXTURE_ID =
+                Identifier.of(ModClient.MOD_ID, "toolbar_button/active")
+            private val DISABLED_TEXTURE_ID =
+                Identifier.of(ModClient.MOD_ID, "toolbar_button/disabled")
+            private val HOVERED_TEXTURE_ID =
+                Identifier.of(ModClient.MOD_ID, "toolbar_button/hovered")
 
             private val RENDERER = Renderer { context, button, _ ->
-                RenderSystem.enableDepthTest()
                 val texture =
-                    if (button.active) (if (button.isHovered) HOVERED_TEXTURE_ID else ACTIVE_TEXTURE_ID) else DISABLED_TEXTURE_ID
-                NinePatchTexture.draw(texture, context, button.x, button.y, button.width, button.height)
+                    if (button.active) {
+                        if (button.isHovered) HOVERED_TEXTURE_ID else ACTIVE_TEXTURE_ID
+                    } else {
+                        DISABLED_TEXTURE_ID
+                    }
+
+                NinePatchTexture.draw(
+                    texture,
+                    context,
+                    button.x,
+                    button.y,
+                    button.width,
+                    button.height
+                )
             }
         }
 
         private val activeObs: Observable<Boolean> = Observable.of(false)
-        val onActiveStream = OnActiveEvent.newStream()
+        val onActiveStream: EventStream<OnActiveEvent> = OnActiveEvent.newStream()
 
         fun interface OnActiveEvent {
             companion object {
                 fun newStream(): EventStream<OnActiveEvent> {
-                    return EventStream<OnActiveEvent> { subscribers ->
+                    return EventStream { subscribers ->
                         OnActiveEvent { newActive ->
                             for (subscriber in subscribers) {
                                 subscriber.onActiveChanged(newActive)
@@ -137,6 +172,10 @@ class ToolbarComponent : FlowLayout(Sizing.fill(100), Sizing.content(), Algorith
 
         fun setInactive() {
             activeObs.set(false)
+        }
+
+        fun press() {
+            onPressAction.accept(this)
         }
     }
 }

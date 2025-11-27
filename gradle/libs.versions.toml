@@ -1,15 +1,15 @@
 [versions]
 armorStatuesCompanion = "1.4.1"
-fabric-loom = "1.7+"
-kotlin-jvm = "1.9.22"
+fabric-loom = "1.14.0-alpha.9"
+kotlin-jvm = "2.0.21"
 modrinth-minotaur = "2.+"
 curseGradle= "1.6.1"
-minecraft = "1.21"
-yarn-mappings = "1.21+build.9"
-fabric-loader = "0.15.11"
-fabric-api = "0.100.6+1.21"
+minecraft = "1.21.10"
+yarn-mappings = "1.21.10+build.3"
+fabric-loader = "0.18.1"
+fabric-api = "0.138.3+1.21.10"
 fabric-kotlin = "1.11.0+kotlin.2.0.0"
-owo = "0.12.10+1.21"
+owo = "0.12.24+1.21.9"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }

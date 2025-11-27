@@ -6,7 +6,7 @@ enum class Rotation(val trigger: ArmorStatuesTrigger): ArmorStatuesTriggers {
     rotate(Trigger.create<Direction>(56)),
 
     head(Trigger.create<AxisDirection>(60)),
-    body(Trigger.create<AxisDirection>(67)),
+    body(Trigger.create<AxisDirection>(66)),
     right_arm(Trigger.create<AxisDirection>(72)),
     left_arm(Trigger.create<AxisDirection>(78)),
     right_leg(Trigger.create<AxisDirection>(84)),
